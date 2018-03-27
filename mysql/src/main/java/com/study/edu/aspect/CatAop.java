@@ -14,6 +14,7 @@ import java.lang.reflect.Proxy;
 
 /**
  * Created by Administrator on 2018/3/15.
+ * 自定义切面，结合自定义注解埋点
  */
 //@Aspect
 //@Component
@@ -24,9 +25,11 @@ public class CatAop {
         Object o = null;
         MethodSignature signature = (MethodSignature) point.getSignature();
         Method method = signature.getMethod();
+        /*判断该方法是否被注解*/
         boolean flag = method.isAnnotationPresent(CatAnnotation.class);
         if(flag){
             System.out.println("enter annotation.");
+            /*进行埋点*/
             Transaction t = Cat.newTransaction("Method",method.getName());
             try{
                 Cat.logMetricForCount(method.getName());
