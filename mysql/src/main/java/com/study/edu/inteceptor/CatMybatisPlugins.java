@@ -23,6 +23,7 @@ import java.util.Properties;
 
 /**
  * Created by Administrator on 2018/3/23.
+ * 自定义 mybatis intercepts
  */
 @Intercepts({
         @Signature(args = { MappedStatement.class,Object.class }, method = "update", type = Executor.class),
