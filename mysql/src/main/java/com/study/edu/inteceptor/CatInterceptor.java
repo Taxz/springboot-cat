@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by Administrator on 2018/3/23.
+ * 定义拦截器，实现埋点
  */
 public class CatInterceptor extends HandlerInterceptorAdapter{
     private ThreadLocal<Transaction> tranLocal = new ThreadLocal<>();

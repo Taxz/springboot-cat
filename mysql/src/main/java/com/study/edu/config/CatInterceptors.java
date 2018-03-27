@@ -18,22 +18,27 @@ import java.util.List;
  */
 @Configuration
 public class CatInterceptors extends WebMvcConfigurerAdapter{
+
+    //注册自定义拦截器
     @Bean
     public CatInterceptor getInterceptor(){
         return new CatInterceptor();
     }
 
+    //注册mybatis拦截器
     @Bean
     public CatMybatisPlugins getCatMybatisInterceptor(){
         return new CatMybatisPlugins();
     }
 
+    //重写addInterceptors方法
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(getInterceptor());
         super.addInterceptors(registry);
     }
 
+    //中文乱码处理
     @Bean
     public HttpMessageConverter<String> responseBodyConverter(){
         StringHttpMessageConverter converter = new StringHttpMessageConverter(Charset.forName("UTF-8"));
