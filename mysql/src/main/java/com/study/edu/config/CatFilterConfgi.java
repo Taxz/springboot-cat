@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Created by Administrator on 2018/3/14.
+ * 注册cat过滤器
  */
 //@Configuration
 public class CatFilterConfgi {
